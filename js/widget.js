@@ -1,5 +1,5 @@
-var url = "../data/employees.json";
-var callback = function (response) {
+var employeeUrl = "../data/employees.json";
+var employeeCallback = function (response) {
 	var statusHTML = '<ul class="bulleted">';
 	$.each(response, function(index, employee) {
 		if (employee.inoffice === true) {
@@ -13,4 +13,21 @@ var callback = function (response) {
 	$('#employeeList').html(statusHTML);
 };
 
-$.getJSON(url, callback);  // end getJSON
+$.getJSON(employeeUrl, employeeCallback);  // end getJSON
+
+var roomUrl = "../data/rooms.json";
+var roomCallback = function (response) {
+	var statusHTML = '<ul class="rooms">';
+	$.each(response, function(index, rooms) {
+		if (rooms.available === true) {
+			statusHTML += '<li class="empty">';
+		} else {
+			statusHTML += '<li class="full">';
+		}
+		statusHTML += rooms.room + '</li>';
+	});
+	statusHTML += '</ul>';
+	$('#roomList').html(statusHTML);
+};
+
+$.getJSON(roomUrl, roomCallback);  // end getJSON
