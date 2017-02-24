@@ -1,3 +1,5 @@
+// Employee Status
+
 var employeeUrl = "../data/employees.json";
 var employeeCallback = function (response) {
 	var statusHTML = '<ul class="bulleted">';
@@ -14,6 +16,8 @@ var employeeCallback = function (response) {
 };
 
 $.getJSON(employeeUrl, employeeCallback);  // end getJSON
+
+// Room Availability
 
 var roomUrl = "../data/rooms.json";
 var roomCallback = function (response) {
